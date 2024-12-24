@@ -10,17 +10,28 @@
     </router-link>
 
   </div>
+
+  <pre>{{ ingredients }}</pre>
 </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 // import store from '../store';
 import { useStore } from 'vuex';
+import axiosClient from '../axiosClient';
 
 const store = useStore();
-const meals = computed(() => store.state.meals);
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const ingredients = ref([]);
+
+onMounted(async () => {
+  const response = await axiosClient
+    .get('./list.php?i=list')
+
+  console.log(response);
+  ingredients.value = response.data;
+});
 
 </script>
