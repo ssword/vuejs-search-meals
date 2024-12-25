@@ -10,7 +10,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
     <div v-for="meal of meals" :key="meal.idMeal" class="bg-white shadow rounded-2xl" >
-        <router-link to="/">
+        <router-link :to="{name: 'mealDetails', params: {id: meal.idMeal}}">
             <img 
         :src="meal.strMealThumb" 
         :alt="meal.strMeal" 
@@ -23,12 +23,7 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis explicabo consequatur culpa 
         </p>
         <div class="flex items-center justify-between">
-            <a 
-            :href="meal.strYoutube" 
-            target="_blank" 
-            class="px-3 py-2 rounded border-2 text-white border-red-600 bg-red-500 hover:bg-red-600 transition-colors">
-            Youtube
-        </a>
+            <YouTubeButton :href="meal.strYoutube"></YouTubeButton>
     </div>
         </div>
     </div>
@@ -39,6 +34,7 @@
 import { ref, computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
+import YouTubeButton from '../components/YouTubeButton.vue';
 
 const route = useRoute();
 const store = useStore();
