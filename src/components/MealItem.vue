@@ -1,18 +1,18 @@
 <template>
-        <div  class="bg-white shadow rounded-2xl">
-            <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
-                <img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded-t-xl w-full h-48 object-cover" />
-            </router-link>
-            <div class="p-3">
-                <h3 class="font-bold">{{ meal.strMeal }}</h3>
-                <p class="mb-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis explicabo consequatur culpa
-                </p>
-                <div class="flex items-center justify-between">
-                    <YouTubeButton :href="meal.strYoutube"></YouTubeButton>
-                </div>
+    <div class="bg-white shadow rounded-2xl">
+        <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
+            <img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded-t-xl w-full h-48 object-cover" />
+        </router-link>
+        <div class="p-3">
+            <h3 class="font-bold">{{ meal.strMeal }}</h3>
+            <p class="mb-4">
+                lempibus autem quibusdam voluptatibus totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
+            </p>
+            <div class="flex items-center justify-between">
+                <YouTubeButton :href="meal.strYoutube"></YouTubeButton>
             </div>
         </div>
+    </div>
 
 </template>
 

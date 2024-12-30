@@ -1,21 +1,19 @@
 <template>
-<div>
+<div class="p-8 pb-0">
     <div class="flex justify-center gap-2 mt-2">
         <router-link :to="{name: 'byLetter', params: {letter}}" v-for="letter of letters" :key="letter">
             {{ letter }}
         </router-link>
     </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
-        <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
-    </div>
+<Meals :meals="meals" />
 </template>
 
 <script setup>
 import { computed, onMounted, watch } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
-import MealItem from '../components/MealItem.vue';
+import Meals from '../components/Meals.vue';
 
 const store = useStore();
 const route = useRoute();
